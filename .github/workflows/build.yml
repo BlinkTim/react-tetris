@@ -23,7 +23,7 @@ jobs:
         uses: docker/login-action@v1
         with:
           registry: docker.io
-          username: ${{ github.actor }}
+          username: blinktim
           password: ${{ secrets.DOCKERHUB_TOKEN }}
         env:
           DOCKER_CLI_DEBUG: '1'
