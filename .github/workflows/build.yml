@@ -40,11 +40,11 @@ jobs:
 
       - name: Extract Tag Name
         id: extract_tag
-        run: echo "::set-output name=tag_name::$(echo $GITHUB_REF | sed 's|.*/||')"
+        run: echo "TAG_NAME=$(echo $GITHUB_REF | sed 's|.*/||')" >> $GITHUB_ENV
 
       - name: Set Docker Image Tag
         id: set_image_tag
-        run: echo "::set-env name=DOCKER_IMAGE_TAG::${{ steps.extract_tag.outputs.tag_name }}"
+        run: echo "DOCKER_IMAGE_TAG=${{ env.TAG_NAME }}" >> $GITHUB_ENV
 
       - name: Set Docker Metadata
         uses: docker/metadata-action@v3
