@@ -40,8 +40,7 @@ jobs:
           context: .
           push: true
           tags: |
-            tetris-app:latest
-            ${{ github.event_name == 'push' && startsWith(github.ref, 'refs/tags/') && github.ref_type == 'tag' && env.TAG_NAME != '' && env.TAG_NAME != 'refs/tags/latest' && contains(env.TAG_NAME, 'refs/tags/') && env.TAG_NAME || 'latest' }}
+            docker.io/blinktim/tetris-app:latest
 
       - name: Extract Tag Name
         id: extract_tag
